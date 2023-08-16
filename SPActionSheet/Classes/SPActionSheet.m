@@ -73,11 +73,13 @@
     window.hidden = NO;
     self.window = window;
     
+    
     UIViewController *viewController = [[UIViewController alloc] init];
     viewController.view.backgroundColor = [UIColor colorWithWhite:0 alpha:0.3];
     viewController.view.alpha = 0.0;
     self.viewController = viewController;
     window.rootViewController = viewController;
+    
     
     SPCollectionView *collectionView = [SPCollectionView create:self];
     collectionView.backgroundColor = [UIColor blueColor];
@@ -86,6 +88,7 @@
     collectionView.frame = CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 300);
     
 }
+
 
 - (void)setMaskHide:(BOOL)maskHide{
     _maskHide = maskHide;
