@@ -1,0 +1,30 @@
+{
+  "name": "SPActionSheet",
+  "version": "0.1.0",
+  "summary": "A short description of SPActionSheet.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/sayiwen/SPActionSheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "sayiwen": "sayiwen@163.com"
+  },
+  "source": {
+    "git": "https://github.com/sayiwen/SPActionSheet.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source_files": "SPActionSheet/Classes/**/*",
+  "dependencies": {
+    "SPCollectionView": [
+      "~> 0.1"
+    ],
+    "Masonry": [
+      "~> 1.1.0"
+    ]
+  }
+}

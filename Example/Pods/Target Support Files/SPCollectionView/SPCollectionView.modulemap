@@ -1,0 +1,6 @@
+framework module SPCollectionView {
+  umbrella header "SPCollectionView-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,31 @@
+PODS:
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.17)
+  - SPActionSheet (0.1.0):
+    - Masonry (~> 1.1.0)
+    - SPCollectionView (~> 0.1)
+  - SPCollectionView (0.1.2):
+    - MJRefresh (~> 3.1.12)
+
+DEPENDENCIES:
+  - SPActionSheet (from `../`)
+
+SPEC REPOS:
+  trunk:
+    - Masonry
+    - MJRefresh
+    - SPCollectionView
+
+EXTERNAL SOURCES:
+  SPActionSheet:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
+  SPActionSheet: 460aeeba6375c92e49d16dc528a1cc032b65ebe0
+  SPCollectionView: 273c86941a06113188ac3edec1787809e48f4d17
+
+PODFILE CHECKSUM: f38102dd9fb8fae5ed0487eaed1e6e0491e53e17
+
+COCOAPODS: 1.12.0

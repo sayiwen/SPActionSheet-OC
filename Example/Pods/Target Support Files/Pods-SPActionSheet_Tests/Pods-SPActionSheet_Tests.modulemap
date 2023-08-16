@@ -1,0 +1,6 @@
+framework module Pods_SPActionSheet_Tests {
+  umbrella header "Pods-SPActionSheet_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

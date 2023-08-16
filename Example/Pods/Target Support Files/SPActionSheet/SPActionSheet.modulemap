@@ -1,0 +1,6 @@
+framework module SPActionSheet {
+  umbrella header "SPActionSheet-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -7,6 +7,7 @@
 //
 
 #import "SPAppDelegate.h"
+#import <SPCollectionView/SPCollectionView.h>
 
 @implementation SPAppDelegate
 
