@@ -43,6 +43,6 @@
 }
 
 + (CGFloat)itemHeight:(CGFloat)width{
-    return 44;
+    return 80;
 }
 @end

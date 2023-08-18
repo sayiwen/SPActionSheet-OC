@@ -1,0 +1,6 @@
+framework module SPTheme {
+  umbrella header "SPTheme-umbrella.h"
+
+  export *
+  module * { export * }
+}

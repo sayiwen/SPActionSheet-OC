@@ -32,12 +32,16 @@ Pod::Spec.new do |s|
 
   s.source_files = 'SPActionSheet/Classes/**/*'
   
-  # s.resource_bundles = {
-  #   'SPActionSheet' => ['SPActionSheet/Assets/*.png']
-  # }
+  
+  #copy resource
+   s.resource_bundles = {
+     'SPActionSheet' => ['SPActionSheet/Assets/*.xcassets']
+   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
-  s.dependency 'SPCollectionView', '~> 0.1'
+  #dependency  local path
+  s.dependency 'SPCollectionView', '~> 0.1.0'
+  s.dependency 'SPTheme', '~> 0.1.0'
   s.dependency 'Masonry', '~> 1.1.0'
 end

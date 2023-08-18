@@ -3,6 +3,8 @@ use_frameworks!
 platform :ios, '10.0'
 
 target 'SPActionSheet_Example' do
+  pod 'SPCollectionView', :path => '../../SPCollectionView'
+  pod 'SPTheme', :path => '../../SPTheme'
   pod 'SPActionSheet', :path => '../'
   target 'SPActionSheet_Tests' do
     inherit! :search_paths

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5CE8723D2A8F7CFE0086807F /* theme.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5CE8723C2A8F7CFE0086807F /* theme.plist */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -40,6 +41,7 @@
 		2FEA36C396663B58BE434627 /* Pods-SPActionSheet_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPActionSheet_Example.release.xcconfig"; path = "Target Support Files/Pods-SPActionSheet_Example/Pods-SPActionSheet_Example.release.xcconfig"; sourceTree = "<group>"; };
 		34CEED7C838A9260354F7B3B /* Pods-SPActionSheet_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SPActionSheet_Tests.debug.xcconfig"; path = "Target Support Files/Pods-SPActionSheet_Tests/Pods-SPActionSheet_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		3E9276C2957C730DAE0429A5 /* Pods_SPActionSheet_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SPActionSheet_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5CE8723C2A8F7CFE0086807F /* theme.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = theme.plist; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* SPActionSheet_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SPActionSheet_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -143,6 +145,7 @@
 		6003F593195388D20070C39A /* Example for SPActionSheet */ = {
 			isa = PBXGroup;
 			children = (
+				5CE8723C2A8F7CFE0086807F /* theme.plist */,
 				6003F59C195388D20070C39A /* SPAppDelegate.h */,
 				6003F59D195388D20070C39A /* SPAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
@@ -247,6 +250,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = sayiwen;
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = Z2PQ6UW345;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -279,6 +285,7 @@
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
+				5CE8723D2A8F7CFE0086807F /* theme.plist in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -350,6 +357,7 @@
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/SPActionSheet/SPActionSheet.framework",
 				"${BUILT_PRODUCTS_DIR}/SPCollectionView/SPCollectionView.framework",
+				"${BUILT_PRODUCTS_DIR}/SPTheme/SPTheme.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -357,6 +365,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPActionSheet.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPCollectionView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SPTheme.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -500,6 +509,7 @@
 			baseConfigurationReference = B3EC58C48100EA88C69219A8 /* Pods-SPActionSheet_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z2PQ6UW345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPActionSheet/SPActionSheet-Prefix.pch";
 				INFOPLIST_FILE = "SPActionSheet/SPActionSheet-Info.plist";
@@ -516,6 +526,7 @@
 			baseConfigurationReference = 2FEA36C396663B58BE434627 /* Pods-SPActionSheet_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Z2PQ6UW345;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SPActionSheet/SPActionSheet-Prefix.pch";
 				INFOPLIST_FILE = "SPActionSheet/SPActionSheet-Info.plist";

@@ -10,7 +10,8 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface SPActionSheet : UIWindow
+
+@interface SPActionSheet : NSObject
 
 +(SPActionSheet *)create:(NSString *)title items:(NSArray<NSString *> *)items;
 +(SPActionSheet *)create:(NSString *)title data:(NSArray<SPViewModel *> *)data;
@@ -28,6 +29,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 //maskHide
 @property (nonatomic, assign) BOOL maskHide;
+
+//pullDown
+@property (nonatomic, assign) BOOL pullDownHide;
+
 
 @end
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>dark</key>
+	<dict>
+		<key>sizes</key>
+		<dict>
+			<key>title</key>
+			<string>20</string>
+		</dict>
+		<key>colors</key>
+		<dict>
+			<key>test</key>
+			<string>#07C160</string>
+			<key>text</key>
+			<string>#efefef</string>
+			<key>primary</key>
+			<string>#6B50FF</string>
+			<key>background</key>
+			<string>#000000</string>
+		</dict>
+	</dict>
+	<key>default</key>
+	<dict>
+		<key>sizes</key>
+		<dict>
+			<key>title</key>
+			<string>14</string>
+		</dict>
+		<key>colors</key>
+		<dict>
+			<key>test</key>
+			<string>#dd4b39</string>
+			<key>text</key>
+			<string>#0d0d0d</string>
+			<key>primary</key>
+			<string>#6B50FF</string>
+			<key>background</key>
+			<string>#dd4b39</string>
+			<key>danger</key>
+			<string>#dd4b39</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

@@ -41,9 +41,6 @@
 
 - (void)addActionSheet:(SPActionSheet *)actionSheet key:(NSString *)key{
     [self.actionSheetMap setObject:actionSheet forKey:key];
-    //log size and key
-    NSLog(@"%@:%@",key,NSStringFromCGSize(actionSheet.frame.size));
-
 }
 
 - (void)removeActionSheet:(NSString *)key{

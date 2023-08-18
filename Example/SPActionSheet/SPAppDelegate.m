@@ -7,13 +7,16 @@
 //
 
 #import "SPAppDelegate.h"
+#import <SPActionSheet/SPActionSheet.h>
 #import <SPCollectionView/SPCollectionView.h>
+#import <SPTheme/SPTheme.h>
 
 @implementation SPAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [SPTheme shareInstance].isRTL = YES;
     return YES;
 }
 

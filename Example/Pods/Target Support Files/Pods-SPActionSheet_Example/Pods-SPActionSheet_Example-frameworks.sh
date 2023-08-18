@@ -180,12 +180,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPActionSheet/SPActionSheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPCollectionView/SPCollectionView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SPTheme/SPTheme.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPActionSheet/SPActionSheet.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/SPCollectionView/SPCollectionView.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/SPTheme/SPTheme.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

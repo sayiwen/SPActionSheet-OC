@@ -1,9 +1,9 @@
 {
   "name": "SPActionSheet",
   "version": "0.1.0",
-  "summary": "A short description of SPActionSheet.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/sayiwen/SPActionSheet",
+  "summary": "A customized ActionSheet that combines with SPCollectionView.",
+  "description": "A customized ActionSheet that combines with SPCollectionView.",
+  "homepage": "https://github.com/sayiwen/SPActionSheet-OC",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,16 +12,24 @@
     "sayiwen": "sayiwen@163.com"
   },
   "source": {
-    "git": "https://github.com/sayiwen/SPActionSheet.git",
+    "git": "https://github.com/sayiwen/SPActionSheet-OC.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "10.0"
+    "ios": "9.0"
   },
   "source_files": "SPActionSheet/Classes/**/*",
+  "resource_bundles": {
+    "SPActionSheet": [
+      "SPActionSheet/Assets/*.xcassets"
+    ]
+  },
   "dependencies": {
     "SPCollectionView": [
-      "~> 0.1"
+      "~> 0.1.0"
+    ],
+    "SPTheme": [
+      "~> 0.1.0"
     ],
     "Masonry": [
       "~> 1.1.0"
