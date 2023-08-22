@@ -116,7 +116,7 @@ static BOOL isRtl;
     
     //container view
     UIView *containerView = [[UIView alloc] init];
-    containerView.backgroundColor = SPColor.background;
+    containerView.backgroundColor = SPColor.secondBackground;
     [viewController.view addSubview:containerView];
     self.containerView = containerView;
     
