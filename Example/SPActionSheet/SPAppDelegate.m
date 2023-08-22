@@ -10,6 +10,7 @@
 #import <SPActionSheet/SPActionSheet.h>
 #import <SPCollectionView/SPCollectionView.h>
 #import <SPTheme/SPTheme.h>
+#import <SPLayout/SPLayout.h>
 
 @implementation SPAppDelegate
 
@@ -17,6 +18,7 @@
 {
     // Override point for customization after application launch.
     [SPTheme shareInstance].isRTL = YES;
+    [SPLayout setRtl:YES];
     return YES;
 }
 

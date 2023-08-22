@@ -23,11 +23,13 @@
 }
 - (IBAction)ShowActionSheet:(id)sender {
     SPActionSheet *actionSheet = [SPActionSheet create:@"ياخشىمۇ سىز" items:@[
-        @"Hello"
+        @"Hello",
+        @"Hello",
+        @"Hello",
+        @"Hello",
+        @"Hello",
     ]];
-    
-    SPActionSheet *actionSheet2 = [SPActionSheet create:@"Hello" data:<#(nonnull NSArray<SPViewModel *> *)#>];
-    
+        
     actionSheet.onItemClick = ^(SPViewModel * item, NSInteger index) {
         NSLog(@"%@:%@",@(item.viewType),@(index));
     };

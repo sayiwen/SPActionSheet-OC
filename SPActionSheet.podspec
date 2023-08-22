@@ -43,5 +43,5 @@ Pod::Spec.new do |s|
   #dependency  local path
   s.dependency 'SPCollectionView', '~> 0.1.0'
   s.dependency 'SPTheme', '~> 0.1.0'
-  s.dependency 'Masonry', '~> 1.1.0'
+  s.dependency 'SPLayout', '~> 0.1.0'
 end

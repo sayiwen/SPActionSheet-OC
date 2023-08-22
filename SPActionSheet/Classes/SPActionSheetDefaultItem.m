@@ -7,13 +7,17 @@
 
 #import "SPActionSheetDefaultItem.h"
 #import "SPActionSheetData.h"
-#import <Masonry/Masonry.h>
+#import <SPLayout/SPLayout.h>
+#import <SPTheme/SPTheme.h>
 
 
 @interface SPActionSheetDefaultItem ()
 
 //titleLabel
 @property (nonatomic, weak) UILabel *titleLabel;
+
+//bottom line
+@property (nonatomic, weak) UIView *bottomLine;
 
 @end
 
@@ -23,26 +27,37 @@
 - (void)setupView{
     [super setupView];
     //rand color
-    self.backgroundColor = [UIColor colorWithRed:arc4random()%255/255.0 green:arc4random()%255/255.0 blue:arc4random()%255/255.0 alpha:.8];
+    self.backgroundColor = UIColor.clearColor;
     UILabel *titleLabel = [UILabel new];
     titleLabel.font = [UIFont systemFontOfSize:14];
-    titleLabel.textColor = UIColor.whiteColor;
+    titleLabel.textColor = SPColor.text;
     titleLabel.textAlignment = NSTextAlignmentCenter;
     [self addSubview:titleLabel];
     self.titleLabel = titleLabel;
-    [titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.equalTo(self).offset(16);
-        make.right.equalTo(self).offset(-16);
-        make.centerY.equalTo(self);
-    }];
+    
+    UIView *bottomLine = [UIView new];
+    bottomLine.backgroundColor = SPColor.border;
+    [self addSubview:bottomLine];
+    self.bottomLine = bottomLine;
+}
+
+- (void)layoutSubviews{
+    [super layoutSubviews];
+    SPLayout.layout(self.titleLabel).widthEqual(self).centerY(self).install();
+    SPLayout.layout(self.bottomLine).widthEqual(self).bottomToBottomOf(self).height(0.5f).install();
 }
 
 - (void)setData:(SPActionSheetData *)data{
     [super setData:data];
     self.titleLabel.text = data.title;
+    if (data.last) {
+        self.bottomLine.hidden = YES;
+    }else{
+        self.bottomLine.hidden = NO;
+    }
 }
 
 + (CGFloat)itemHeight:(CGFloat)width{
-    return 80;
+    return 44;
 }
 @end

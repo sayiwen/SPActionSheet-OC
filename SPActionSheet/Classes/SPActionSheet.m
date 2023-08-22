@@ -10,8 +10,8 @@
 #import "SPActionSheetManager.h"
 #import "SPActionSheetData.h"
 #import <SPCollectionView/SPBaseItem.h>
-#import <Masonry/Masonry.h>
 #import <SPTheme/SPTheme.h>
+#import <SPLayout/SPLayout.h>
 
 //is rtl define static
 static BOOL isRtl;
@@ -63,10 +63,16 @@ static BOOL isRtl;
 
 +(SPActionSheet *)create:(NSString *)title items:(NSArray<NSString *> *)items{
     NSMutableArray *data = [NSMutableArray new];
+    int i = 0;
     for (NSString *item in items) {
         SPActionSheetData *viewModel = [[SPActionSheetData alloc] init];
         viewModel.title = item;
         viewModel.viewType = SPViewTypeActionSheetDefaultItem;
+        //set last
+        if (i == items.count - 1) {
+            viewModel.last = YES;
+        }
+        i++;
         [data addObject:viewModel];
     }
     return [self create:title data:data];
@@ -88,7 +94,7 @@ static BOOL isRtl;
         self.maskHide = YES;
         self.autoHide = YES;
         self.pullDownHide = YES;
-    
+        self.cornerRadius = 10;
     }
     return self;
 }
@@ -163,36 +169,28 @@ static BOOL isRtl;
 
 - (void)layoutSubviews{
     
-    [self.containerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.viewController.view);
-        make.top.equalTo(self.viewController.view.mas_bottom);
-    }];
+    SPLayout.layout(self.containerView)
+        .widthEqual(self.viewController.view)
+        .topToBottomOf(self.viewController.view)
+        .install();
     
-    [self.titleLabel mas_makeConstraints:^(MASConstraintMaker *make) {
-        if([SPTheme shareInstance].isRTL){
-            make.right.equalTo(self.containerView).offset(-15);
-        }else{
-            make.left.equalTo(self.containerView).offset(15);
-        }
-        make.top.equalTo(self.containerView.mas_top).offset(10);
-        make.height.mas_equalTo(40);
-    }];
+    SPLayout.layout(self.titleLabel)
+        .rightToRightOfMargin(self.containerView,15)
+        .topToTopOfMargin(self.containerView,10)
+        .height(40)
+        .install();
+    
+    SPLayout.layout(self.closeButton)
+        .leftToLeftOfMargin(self.containerView,15)
+        .centerY(self.titleLabel)
+        .size(CGSizeMake(36, 36))
+        .install();
 
-    [self.closeButton mas_makeConstraints:^(MASConstraintMaker *make) {
-        if([SPTheme shareInstance].isRTL){
-            make.left.equalTo(self.containerView).offset(15);
-        }else{
-            make.right.equalTo(self.containerView).offset(-15);
-        }
-        make.centerY.equalTo(self.titleLabel);
-        make.size.mas_equalTo(40);
-    }];
-
-    [self.collectionView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.right.equalTo(self.containerView);
-        make.top.equalTo(self.titleLabel.mas_bottom).offset(10);
-        make.bottom.equalTo(self.containerView.mas_bottom);
-    }];
+    SPLayout.layout(self.collectionView)
+        .widthEqual(self.containerView)
+        .topToBottomOfMargin(self.titleLabel,10)
+        .bottomToBottomOf(self.containerView)
+        .install();
     
 }
 
@@ -212,6 +210,10 @@ static BOOL isRtl;
 }
 
 - (void)show{
+    
+    
+    
+    
     self.titleLabel.text = self.title;
     [self.collectionView setData:self.data];
     [self.window makeKeyAndVisible];
@@ -221,11 +223,24 @@ static BOOL isRtl;
 }
 
 - (void)showAnimation{
+    
+    //corner
+    if (self.cornerRadius) {
+        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+        // Set the path of the CAShapeLayer to a UIBezierPath with rounded corners on the top only
+        UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds
+                                                          byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+                                                                cornerRadii:CGSizeMake(10.0, 10.0)];
+        maskLayer.path = roundedPath.CGPath;
+        // Set the mask of the view's layer to the CAShapeLayer
+        self.containerView.layer.mask = maskLayer;
+    }
+    
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.viewController.view.alpha = 1.0;
-        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.viewController.view.mas_bottom).offset(-1 * self.containerView.frame.size.height);
-        }];
+        SPLayout.update(self.containerView)
+            .topToBottomOfMargin(self.viewController.view,-1 * self.containerView.frame.size.height)
+            .install();
         [self.viewController.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         
@@ -238,9 +253,9 @@ static BOOL isRtl;
     
     [UIView animateWithDuration:0.3 animations:^{
         self.viewController.view.alpha = 0.0;
-        [self.containerView mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.viewController.view.mas_bottom);
-        }];
+        SPLayout.update(self.containerView)
+            .topToBottomOf(self.viewController.view)
+            .install();
         [self.viewController.view layoutIfNeeded];
     } completion:^(BOOL finished) {
         self.window.hidden = YES;

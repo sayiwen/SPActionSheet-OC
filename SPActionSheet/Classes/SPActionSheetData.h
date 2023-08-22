@@ -14,6 +14,9 @@ NS_ASSUME_NONNULL_BEGIN
 //title
 @property (nonatomic, copy) NSString *title;
 
+//last
+@property (nonatomic, assign) BOOL last;
+
 @end
 
 NS_ASSUME_NONNULL_END

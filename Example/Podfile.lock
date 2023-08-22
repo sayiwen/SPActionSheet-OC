@@ -2,16 +2,19 @@ PODS:
   - Masonry (1.1.0)
   - MJRefresh (3.1.17)
   - SPActionSheet (0.1.0):
-    - Masonry (~> 1.1.0)
     - SPCollectionView (~> 0.1.0)
+    - SPLayout (~> 0.1.0)
     - SPTheme (~> 0.1.0)
   - SPCollectionView (0.1.2):
     - MJRefresh (~> 3.1.12)
+  - SPLayout (0.1.3):
+    - Masonry (~> 1.1.0)
   - SPTheme (0.1.0)
 
 DEPENDENCIES:
   - SPActionSheet (from `../`)
   - SPCollectionView (from `../../SPCollectionView`)
+  - SPLayout (from `../../SPLayout`)
   - SPTheme (from `../../SPTheme`)
 
 SPEC REPOS:
@@ -24,16 +27,19 @@ EXTERNAL SOURCES:
     :path: "../"
   SPCollectionView:
     :path: "../../SPCollectionView"
+  SPLayout:
+    :path: "../../SPLayout"
   SPTheme:
     :path: "../../SPTheme"
 
 SPEC CHECKSUMS:
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: ee5b68f639775462faba4db0fd243baf4d42c2cf
-  SPActionSheet: 0636fcd04de7dca9bf36d35b8ec530c79adb7cf1
+  SPActionSheet: 075a0df8da5e715c8d34177758fdd53c44ebbb5c
   SPCollectionView: 273c86941a06113188ac3edec1787809e48f4d17
+  SPLayout: 7d9b1e1dfdc7fef2699edd141ba516155c1ec795
   SPTheme: 6463dd581700651d0d914252d1863ce7e009f121
 
-PODFILE CHECKSUM: 49db1dc58c90b8770a58f04d0cb09e76dcdc114f
+PODFILE CHECKSUM: 51481a794bc5082795dec4f3309c181fb04c24fb
 
 COCOAPODS: 1.12.0

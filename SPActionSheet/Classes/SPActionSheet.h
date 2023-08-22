@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 //pullDown
 @property (nonatomic, assign) BOOL pullDownHide;
 
+//corner radius
+@property (nonatomic, assign) CGFloat cornerRadius;
+
 
 @end
 
