@@ -8,6 +8,7 @@
 
 #import "SPViewController.h"
 #import <SPActionSheet/SPActionSheet.h>
+#import <SPTheme/SPTheme.h>
 
 @interface SPViewController ()
 
@@ -18,11 +19,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    
+    self.view.backgroundColor = SPColor.background;
 }
 - (IBAction)ShowActionSheet:(id)sender {
     SPActionSheet *actionSheet = [SPActionSheet create:@"ياخشىمۇ سىز" items:@[
+        @"Hello",
+        @"Hello",
+        @"Hello",
+        @"Hello",
+        @"Hello",
         @"Hello",
         @"Hello",
         @"Hello",
