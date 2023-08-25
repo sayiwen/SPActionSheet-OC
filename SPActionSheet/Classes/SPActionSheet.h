@@ -24,6 +24,9 @@ NS_ASSUME_NONNULL_BEGIN
 //dismiss
 -(void)dismiss;
 
+//add data
+-(void)addData:(NSArray<SPViewModel *> *)data;
+
 //autoHide
 @property (nonatomic, assign) BOOL autoHide;
 

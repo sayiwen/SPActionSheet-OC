@@ -51,6 +51,10 @@ static BOOL isRtl;
 //bundle
 @property (nonatomic, strong) NSBundle *bundle;
 
+//first show
+@property (nonatomic, assign) BOOL firstShow;
+
+
 @end
 
 @implementation SPActionSheet
@@ -95,6 +99,7 @@ static BOOL isRtl;
         self.autoHide = YES;
         self.pullDownHide = YES;
         self.cornerRadius = 10;
+        self.firstShow = YES;
     }
     return self;
 }
@@ -171,7 +176,7 @@ static BOOL isRtl;
     
     SPLayout.layout(self.containerView)
         .widthEqual(self.viewController.view)
-        .topToBottomOf(self.viewController.view)
+        .bottomToBottomOf(self.viewController.view)
         .install();
     
     SPLayout.layout(self.titleLabel)
@@ -209,11 +214,14 @@ static BOOL isRtl;
     }
 }
 
+
+- (void)addData:(NSArray<SPViewModel *> *)data{
+    [self.collectionView addData:data];
+}
+
 - (void)show{
     
-    
-    
-    
+
     self.titleLabel.text = self.title;
     [self.collectionView setData:self.data];
     [self.window makeKeyAndVisible];
@@ -226,20 +234,20 @@ static BOOL isRtl;
     
     //corner
     if (self.cornerRadius) {
-        CAShapeLayer *maskLayer = [CAShapeLayer layer];
-        // Set the path of the CAShapeLayer to a UIBezierPath with rounded corners on the top only
-        UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds
-                                                          byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
-                                                                cornerRadii:CGSizeMake(10.0, 10.0)];
-        maskLayer.path = roundedPath.CGPath;
-        // Set the mask of the view's layer to the CAShapeLayer
-        self.containerView.layer.mask = maskLayer;
+//        CAShapeLayer *maskLayer = [CAShapeLayer layer];
+//        // Set the path of the CAShapeLayer to a UIBezierPath with rounded corners on the top only
+//        UIBezierPath *roundedPath = [UIBezierPath bezierPathWithRoundedRect:self.containerView.bounds
+//                                                          byRoundingCorners:UIRectCornerTopLeft | UIRectCornerTopRight
+//                                                                cornerRadii:CGSizeMake(10.0, 10.0)];
+//        maskLayer.path = roundedPath.CGPath;
+//        // Set the mask of the view's layer to the CAShapeLayer
+//        self.containerView.layer.mask = maskLayer;
     }
     
     [UIView animateWithDuration:0.3 delay:0 usingSpringWithDamping:0.8 initialSpringVelocity:0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
         self.viewController.view.alpha = 1.0;
         SPLayout.update(self.containerView)
-            .topToBottomOfMargin(self.viewController.view,-1 * self.containerView.frame.size.height)
+            .bottomToBottomOf(self.viewController.view)
             .install();
         [self.viewController.view layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -254,7 +262,7 @@ static BOOL isRtl;
     [UIView animateWithDuration:0.3 animations:^{
         self.viewController.view.alpha = 0.0;
         SPLayout.update(self.containerView)
-            .topToBottomOf(self.viewController.view)
+            .bottomToBottomOfMargin(self.viewController.view,-1 * self.containerView.frame.size.height)
             .install();
         [self.viewController.view layoutIfNeeded];
     } completion:^(BOOL finished) {
@@ -275,19 +283,29 @@ static BOOL isRtl;
 
 - (void)onGetHeight:(CGFloat)height{
     
-    CGFloat bottom = 0;
-    if (@available(iOS 11.0, *)) {
-        bottom = [UIApplication sharedApplication].keyWindow.safeAreaInsets.bottom;
-    }
     height += 60;
-    
+
     if (height > [UIScreen mainScreen].bounds.size.height/2) {
         height = [UIScreen mainScreen].bounds.size.height/2;
     }
     
-    [self.collectionView mas_updateConstraints:^(MASConstraintMaker *make) {
-        make.height.mas_equalTo(height);
+    [UIView animateWithDuration:0.1 animations:^{
+        SPLayout.update(self.collectionView).height(height).install();
+        [self.viewController.view layoutIfNeeded];
+    
     }];
+    
+    [self.viewController.view layoutIfNeeded];
+    
+    
+    if(self.firstShow){
+        SPLayout.update(self.containerView)
+            .bottomToBottomOfMargin(self.viewController.view,-1 * self.containerView.frame.size.height)
+            .install();
+        [self.viewController.view layoutIfNeeded];
+        self.firstShow = NO;
+    }
+
 }
 
 - (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch{
